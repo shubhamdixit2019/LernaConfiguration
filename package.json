@@ -1,0 +1,22 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ],
+  "devDependencies": {
+    "@react-workspaces/react-scripts": "^3.0.1-alpha-07",
+    "lerna": "^3.16.4",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1"
+  },
+  "scripts": {
+    "internet": "cd packages/internet-banking && yarn start",
+    "mobile": "cd packages/mobile-banking-app && yarn start",
+    "build": "lerna run build",
+    "clean": "yarn clean:artifacts && yarn clean:packages && yarn clean:root",
+    "clean:artifacts": "lerna run clean --parallel",
+    "clean:packages": "lerna clean --yes",
+    "clean:root": "rm -rf node_modules"
+  }
+}
